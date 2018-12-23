@@ -2,7 +2,7 @@ const http = require('http');
 const url = require('url');
 const util = require('./util.js');
 
-var navi = new util.navi("./public/");
+var navi = new util.navi("./public");
 /*
 //Put page resolution here
 var pages = function (req, res){
