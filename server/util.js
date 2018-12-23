@@ -1,4 +1,4 @@
-exports.rnav = function(path){
+exports.util = function(path){
   let fs = require("fs");
   let url =  require("url");
   this.test = "test"

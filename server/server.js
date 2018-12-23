@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
   res.end('Hello, World!\n');
 });
 */
-console.log(util.test);
+console.log(util.util.test);
 console.log(util.paths.pages);
 console.log(util.paths.index);
 const server = http.createServer(util.paths.pages);
