@@ -18,9 +18,9 @@ const server = http.createServer((req, res) => {
   res.end('Hello, World!\n');
 });
 */
-console.log(util.path.pages);
-console.log(util.path.index);
-const server = http.createServer(util.path.pages);
+console.log(util.paths.pages);
+console.log(util.paths.index);
+const server = http.createServer(util.paths.pages);
 
 server.listen(8080, () => {
   console.log(`Server running`);
