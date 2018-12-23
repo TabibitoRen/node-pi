@@ -12,10 +12,10 @@ exports.navi = function(path){
         index = value;
       },
       pages:function(req,res){
-
+        console.log(req.url);
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
-        res.write("<html><head><title>Testing</title></head><body>Let's hope this works: the requested url is"+{req.url}+"</body></html>");
+        res.write("<html><head><title>Testing</title></head><body>Let's hope this works: the requested url is </body></html>");
         res.end();
       }
     };
