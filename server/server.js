@@ -19,7 +19,7 @@ const server = http.createServer((req, res) => {
   res.end('Hello, World!\n');
 });
 */
-const server = http.createServer(navi.paths.pages);
+const server = http.createServer(navi.paths("./public").pages);
 
 server.listen(8080, () => {
   console.log(`Server running`);
