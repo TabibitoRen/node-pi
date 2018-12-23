@@ -5,7 +5,7 @@ exports.navi = function(path){
     let public = fs.readdirSync(__dirname+path);
     let publicData = {};
     for(var fileName in public ){
-      publicData[fileName] = fs.readFileSync(__dirname+path"/"+fileName);
+      publicData[fileName] = fs.readFileSync(__dirname+path+"/"+fileName);
     }
     let index = "index.html";
     return {
