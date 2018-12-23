@@ -13,7 +13,7 @@ exports.navi = function(path){
       },
       pages:function(req,res){
         let reqUrl = url.parse(`http://${req.url}`);
-        console.log(reqUrl);
+        console.log(reqUrl[0]);
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
         res.write("<html><head><title>Testing</title></head><body>Let's hope this works: the requested url is </body></html>");
