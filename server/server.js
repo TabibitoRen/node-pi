@@ -24,4 +24,3 @@ const server = http.createServer(navi.paths.pages);
 server.listen(8080, () => {
   console.log(`Server running`);
 });
-*/
