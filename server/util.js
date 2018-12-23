@@ -10,16 +10,15 @@ exports.navi = function(path){
     let index = "index.html";
     return {
       pages:function(req,res){
+        res.setHeader('Content-Type', 'text/html');
         let reqUrl = url.parse(req.url,true); //favicon is always requested on top of the url
         try{
           res.statusCode = 200;
-          res.setHeader('Content-Type', 'text/html');
           res.write(publicData[reqUrl.path.substring(1)]);
           res.end();
         }
         catch(err){
           res.statusCode = 404;
-          res.setHeader('Content-Type', 'text/html');
           res.write("404 Page Not Found");
           res.end();
 
