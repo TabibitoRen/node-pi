@@ -1,9 +1,8 @@
 exports.navi = function(path){
   let fs = require("fs");
   let url =  require("url");
-  this.paths =  function(folder){
-    console.log(folder);
-    let public = fs.readdirSync(folder);
+  this.paths =  function(path){
+    let public = fs.readdirSync(path);
     let index = "index.html";
     return {
       pages:function(req,res){

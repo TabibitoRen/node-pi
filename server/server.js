@@ -2,7 +2,7 @@ const http = require('http');
 const url = require('url');
 const util = require('./util.js');
 
-var navi = new util.navi;
+var navi = new util.navi("./public");
 /*
 //Put page resolution here
 var pages = function (req, res){
@@ -19,7 +19,7 @@ const server = http.createServer((req, res) => {
   res.end('Hello, World!\n');
 });
 */
-const server = http.createServer(navi.paths("./public").pages);
+const server = http.createServer(navi.paths.pages);
 
 server.listen(8080, () => {
   console.log(`Server running`);
