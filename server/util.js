@@ -1,7 +1,8 @@
-exports.util = function(path){
+exports.rnav = function(path){
   let fs = require("fs");
   let url =  require("url");
-
+  this.test = "test"
+  /*
   this.paths =  function(){
     let index = "index.html";
     return {
@@ -19,4 +20,5 @@ exports.util = function(path){
       }
     };
   }();
+  */
 };
