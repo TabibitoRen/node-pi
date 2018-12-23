@@ -1,7 +1,7 @@
 exports.navi = function(path){
   let fs = require("fs");
   let url =  require("url");
-  this.paths =  function(path){
+  this.paths =  function(){
     let public = fs.readdirSync(path);
     let index = "index.html";
     return {
