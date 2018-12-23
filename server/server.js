@@ -1,10 +1,11 @@
 const http = require('http');
-const port = 8080;
+const url = require('url');
+const util = require('./util.js');
 
-
+/*
 //Put page resolution here
 var pages = function (req, res){
-  //let html = require('./public/index.html');
+  //let html = require('./public/index.html'); I need this to be read as string
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/html');
   res.write("<html><head><title>Test</title></head><body>body test</body></html>");
@@ -18,8 +19,8 @@ const server = http.createServer((req, res) => {
 });
 */
 
-const server = http.createServer(pages);
+const server = http.createServer(util.pages);
 
-server.listen(port, () => {
-  console.log(`Server running at ${port}`);
+server.listen(8080, () => {
+  console.log(`Server running`);
 });
