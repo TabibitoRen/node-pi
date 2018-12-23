@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
   res.end('Hello, World!\n');
 });
 */
-
+console.log(util);
 const server = http.createServer(util.pages);
 
 server.listen(8080, () => {

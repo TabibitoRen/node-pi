@@ -17,4 +17,4 @@ exports.util = function(path){
       res.end();
     },
   };
-}();
+};
