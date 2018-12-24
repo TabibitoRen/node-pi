@@ -12,6 +12,7 @@ exports.navi = function(path){
       pages:function(req,res){
         res.setHeader('Content-Type', 'text/html');
         let reqUrl = url.parse(req.url,true); //favicon is always requested on top of the url
+        console.log(reqUrl);
         try{
           res.statusCode = 200;
           res.write(publicData[reqUrl.path]);
