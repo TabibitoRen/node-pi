@@ -23,8 +23,8 @@ exports.navi = function(path){
         res.setHeader('Content-Type', 'text/html');
         let reqUrl = url.parse(req.url,true); //favicon is always requested on top of the url
         //reqUrl.query has key value pairs of the post/get
-        let data = fs.readFileSync(__dirname+path+"/"+reqUrl.pathname);
         try{
+          data = (reqUrl.pathname) ? fs.readFileSync(__dirname+path+"/"+reqUrl.pathname) :  fs.readFileSync(__dirname+path+"/index.html");
           res.statusCode = 200;
           res.write(data);
           res.end();
