@@ -11,20 +11,22 @@ exports.navi = function(path){
   }
 
   this.paths =  function(){
+    /*Maybe caching everything might be overkill
     let public = fs.readdirSync(__dirname+path);
     let publicData = {};
     for(var fileName in public ){
       publicData["/"+public[fileName]] = fs.readFileSync(__dirname+path+"/"+public[fileName]);
     }
-    publicData["/"] = fs.readFileSync(__dirname+path+"/index.html");
+    publicData["/"] = fs.readFileSync(__dirname+path+"/index.html");*/
     return {
       pages:function(req,res){
         res.setHeader('Content-Type', 'text/html');
         let reqUrl = url.parse(req.url,true); //favicon is always requested on top of the url
         //reqUrl.query has key value pairs of the post/get
+        let data = fs.readFileSync(__dirname+path+"/"+reqUrl.pathname);
         try{
           res.statusCode = 200;
-          res.write(publicData[reqUrl.pathname]);
+          res.write(data);
           res.end();
         }
         catch(err){
