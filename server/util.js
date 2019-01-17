@@ -30,6 +30,7 @@ exports.navi = function(path){
           res.end();
         }
         catch(err){
+          console.log(__dirname+path+"/view/index.html");
           res.statusCode = 404;
           res.write("404 Page Not Found");
           res.end();
