@@ -1,4 +1,41 @@
+/*Base*/
 *{
   margin:0px;
   padding:0px
 }
+
+/*Generic*/
+
+.flex{
+  display:flex;
+}
+.flex-center{
+  justify-content: center;
+}
+
+
+
+
+
+
+
+/*Specifics*/
+nav{
+  display:flex;
+  justify-content: center;
+}
+
+.nav-list{
+  display:flex;
+  list-style-type: none;
+  text-align: center;
+  min-width: 80%;
+}
+
+.nav-item{
+  padding-left: 3em;
+  padding-right: 3em;
+}
+ .nav-item>a{
+   text-decoration: none;
+ }
