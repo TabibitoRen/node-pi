@@ -2,29 +2,27 @@ exports.navi = function(path){
   let fs = require("fs");
   let url =  require("url");
 
-  function isEmpty(value = true){
-    if(typeof(value) != "object" || value === null){
-      return (value)?false:true;
-    }else{
-      return (Object.keys(value).length)?false:true;
+  function getHeaderFromPathname(pathname){
+    let header = pathname.split('.')[1];
+    switch(header){
+      case "css":
+        header = "text/css";
+        break;
+      default:
+        header = "text/html";
+        break;
     }
+    return header;
   }
 
   this.paths =  function(){
-    /*Maybe caching everything might be overkill
-    let public = fs.readdirSync(__dirname+path);
-    let publicData = {};
-    for(var fileName in public ){
-      publicData["/"+public[fileName]] = fs.readFileSync(__dirname+path+"/"+public[fileName]);
-    }
-    publicData["/"] = fs.readFileSync(__dirname+path+"/index.html");*/
     return {
       pages:function(req,res){
-        res.setHeader('Content-Type', 'text/html');
         let reqUrl = url.parse(req.url,true); //favicon is always requested on top of the url
         //reqUrl.query has key value pairs of the post/get
         try{
           data = (reqUrl.pathname != "/") ? fs.readFileSync(__dirname+path+reqUrl.pathname) :  fs.readFileSync(__dirname+path+"/view/index.html");
+          res.setHeader('Content-Type',getHeaderFromPathname(reqUrl.pathname));
           res.statusCode = 200;
           res.write(data);
           res.end();
@@ -39,4 +37,14 @@ exports.navi = function(path){
       }
     };
   }();
+
+  function isEmpty(value = true){
+    if(typeof(value) != "object" || value === null){
+      return (value)?false:true;
+    }else{
+      return (Object.keys(value).length)?false:true;
+    }
+  }
+
+
 };
