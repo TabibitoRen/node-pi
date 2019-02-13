@@ -2,11 +2,14 @@ exports.navi = function(path){
   let fs = require("fs");
   let url =  require("url");
 
-  function getHeaderFromPathname(pathname){
+  function getContentTypeFromPathname(pathname){
     let header = pathname.split('.')[1];
     switch(header){
       case "css":
         header = "text/css";
+        break;
+      case "js":
+        header = "text/javascript";
         break;
       default:
         header = "text/html";
@@ -22,7 +25,7 @@ exports.navi = function(path){
         //reqUrl.query has key value pairs of the post/get
         try{
           data = (reqUrl.pathname != "/") ? fs.readFileSync(__dirname+path+reqUrl.pathname) :  fs.readFileSync(__dirname+path+"/view/index.html");
-          res.setHeader('Content-Type',getHeaderFromPathname(reqUrl.pathname));
+          res.setHeader('Content-Type',getContentTypeFromPathname(reqUrl.pathname));
           res.statusCode = 200;
           res.write(data);
           res.end();

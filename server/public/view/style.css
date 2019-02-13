@@ -4,6 +4,11 @@
   padding:0px;
 }
 
+body{
+background-color: #334037;
+
+}
+
 /*Generic*/
 
 .flex{
@@ -13,7 +18,9 @@
   justify-content: center;
 }
 
-
+.text-white{
+  color: white;
+}
 
 
 
@@ -23,6 +30,7 @@
 nav{
   display:flex;
   justify-content: center;
+  background-color: #049caa;
 }
 
 .nav-list{
@@ -39,3 +47,8 @@ nav{
  .nav-item>a{
    text-decoration: none;
  }
+
+.container{
+  border:5px solid black;
+
+}
